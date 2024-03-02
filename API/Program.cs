@@ -13,6 +13,7 @@ builder.Services.AddDbContext<StoreContext>(opt => {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddCors(); //Origin servisi(yerel bilgisayarın bağlantısını değiştirmek için ilk adım sayılabilir.)
 var app = builder.Build();  
 
 
@@ -22,6 +23,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//burada origin servisinin gösterdiği locali değiştiriyorum
+// lambda ifadesi ile tüm yöntemlere izin verip değiştirdim
+app.UseCors(opt=>{opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");});
 
 
 
