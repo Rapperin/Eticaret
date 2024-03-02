@@ -1,5 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import { Product } from "../../app/models/product";
+import { Button } from "@mui/material";
+import ProductList from "./ProductList";
 interface Props{
     musteriler:Product[];
     musteriEkle :()=> void;  
@@ -8,14 +10,9 @@ interface Props{
 export default function Catalog({musteriler, musteriEkle}: Props){
     return(
         <Fragment>
-        <ul>
-        {musteriler.map(product =>(<li key={product.id}>{product.name}-{product.price} </li> ) )}
-        
-
-        </ul>
+        <ProductList musteriler={musteriler}/>
   
-  
-        <button onClick={musteriEkle}>AddProduct</button>
+        <Button variant='contained' onClick={musteriEkle}>AddProduct</Button>
         </Fragment>
     )
 }

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { Product } from "../models/product";
 import Catalog from "../../features/catalog/Catalog";
+import { Container, CssBaseline  } from "@mui/material";
+import Header from "./Header";
 
 
 function App() {
@@ -15,11 +17,14 @@ function App() {
     +101,brand:'some brand',description:'some description',pictureUrl:'http://picsum.photos/200'}])
     }
   return (
-    <div> 
-      <h1>E-ticaret</h1>
+    <Fragment> 
+      <CssBaseline/>
+      <Header/>
+      <Container>
       <Catalog musteriler={musteriler} musteriEkle={musteriEkle} />
+      </Container>
       
-    </div>
+    </Fragment>
   )
 }
 
