@@ -25,7 +25,15 @@ if (app.Environment.IsDevelopment())
 }
 //burada origin servisinin gösterdiği locali değiştiriyorum
 // lambda ifadesi ile tüm yöntemlere izin verip değiştirdim
-app.UseCors(opt=>{opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");});
+app.UseCors(opt =>
+{
+  opt
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    
+    .WithOrigins("http://localhost:3000");
+});
+
 
 
 
