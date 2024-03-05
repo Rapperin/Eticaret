@@ -1,4 +1,16 @@
 import { AppBar, Switch, Toolbar, Typography, styled } from "@mui/material";
+
+const midLinks = [
+  {title:'catalog',path:'/catalog'},
+  {title:'about',path:'/about'},
+  {title:'contact',path:'/contact'},
+]
+const rightLinks = [
+  {title:'login',path:'/login'},
+  {title:'register',path:'/register'}
+  
+]
+
 interface Props{
     darkmode:boolean;
     handleThemeChange:()=> void
